@@ -1,0 +1,21 @@
+<div *ngIf="category">
+  <h2>{{category.name}}</h2>
+  <div>
+    <label>Favorite:
+      <input [(ngModel)]="category.isFavorite" placeholder="isFavorite">
+    </label>
+  </div>
+  <div>
+    <h2>Pages</h2>
+    <div class="card-columns">
+      <div class="card h-400" *ngFor="let page of category.pages">
+        <a class="card-link" routerLink="/page/{{page.title}}">
+            <img class="card-img-top" [src]="page.thumbnail"/>
+            <div class="card-img-overlay"><h4 class="text-white">{{page.title}}</h4></div>
+        </a>
+      </div>
+    </div>
+  </div>
+  <button (click)="save()">save</button>
+  <button (click)="goBack()">go back</button>
+</div>

@@ -1,0 +1,10 @@
+<div class="card h-400" *ngIf="page">
+  <div class="card-header">
+    {{page.title}}
+  </div>
+  <img class="card-img-top" src="{{page.thumbnail}}">
+  <div class="card-img-overlay">
+    {{page.extract}}
+  </div>
+  <a class="btn btn-primary" (click)="read()">play</a>
+</div>

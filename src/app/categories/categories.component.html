@@ -1,0 +1,11 @@
+<h2>All Categories</h2>
+<div class="card-columns">
+  <div class="card h-400" *ngFor="let category of categories">
+    <a class="card-link" routerLink="/detail/{{category.id}}">
+      <img class="card-img-top" src="{{category.image}}"/>
+      <div class="card-img-overlay">
+          <h4 class="text-white">{{category.name}}</h4>
+      </div>
+    </a>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {catchError, tap, map} from "rxjs/operators";
-import {MessageService} from "./message.service";
-import {Observable, of} from "rxjs/index";
+import {HttpClient} from '@angular/common/http';
+import {catchError, tap, map} from 'rxjs/operators';
+import {MessageService} from './message.service';
+import {Observable, of} from 'rxjs/index';
 import Page = wikipedia.Page;
 import PageRequest = wikipedia.transport.QueryResponse;
 
@@ -25,16 +25,16 @@ export class PageService {
     return this.http.get<PageRequest>(url)
       .pipe(
         map(data => {
-          let page = data.query.pages[0];
+          const page = data.query.pages[0];
           return {
             title: page.title,
             thumbnail: page.thumbnail.source,
             extract: page.extract,
-          }
+          };
         }),
         tap(_ => this.log(`fetched page id=${id}`)),
         catchError(this.handleError<any>(`getPage id=${id}`))
-      )
+      );
   }
 
   private log(message: string) {

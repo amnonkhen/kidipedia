@@ -1,5 +1,5 @@
 import {InMemoryDbService, ParsedRequestUrl} from 'angular-in-memory-web-api';
-import {RequestInfoUtilities} from "angular-in-memory-web-api/interfaces";
+import {RequestInfoUtilities} from 'angular-in-memory-web-api/interfaces';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
@@ -22,15 +22,15 @@ export class InMemoryDataService implements InMemoryDbService {
   }
 
   parseRequestUrl(url: string, requestInfoUtils: RequestInfoUtilities): ParsedRequestUrl {
-    if (url.indexOf("wikipedia") > -1) {
-      console.log("calling wikipedia api");
+    if (url.indexOf('wikipedia') > -1) {
+      console.log('calling wikipedia api');
       return {
         apiBase: '',
         collectionName: 'x',
         id: '',
         query: new Map(),
         resourceUrl: 'url',
-      }
+      };
     } else {
       return requestInfoUtils.parseRequestUrl(url);
     }

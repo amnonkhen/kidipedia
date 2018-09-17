@@ -1,10 +1,10 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {Location} from "@angular/common";
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
 
-import {Category} from "../category";
-import {CategoryService} from "../category.service";
-import {combineLatest} from "rxjs";
+import {Category} from '../category';
+import {CategoryService} from '../category.service';
+import {combineLatest} from 'rxjs';
 
 
 @Component({

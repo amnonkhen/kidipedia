@@ -2,8 +2,8 @@
 export class Category {
   id: string;
   name: string;
-  isFavorite: boolean = false;
+  isFavorite = false;
   pages: object = {};
   query?: object = {};
-  image?:string;
+  image?: string;
 }

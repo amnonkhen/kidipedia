@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {Observable, of} from 'rxjs';
 
-import {Category} from "./category";
-import {MessageService} from "./message.service";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {catchError, tap, map} from "rxjs/operators";
+import {Category} from './category';
+import {MessageService} from './message.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {catchError, tap, map} from 'rxjs/operators';
 import Page = wikipedia.Page;
 import QueryResponse = wikipedia.transport.QueryResponse;
 
@@ -28,7 +28,7 @@ function safeThumbnailSource(page: wikipedia.transport.Page): string {
 export class CategoryService {
   private categoriesUrl = '/api/categories';
 
-  private wikipediaEnpoint = 'https://en.wikipedia.org/w/api.php'
+  private wikipediaEnpoint = 'https://en.wikipedia.org/w/api.php';
 
   private categoryImageParams = {
     'origin': '*',
@@ -40,7 +40,7 @@ export class CategoryService {
     'piprop': 'thumbnail|name|original',
     'pithumbsize': '400',
     'titles': '',
-  }
+  };
 
 
   private pagesInCategoryParams = {
@@ -95,16 +95,16 @@ export class CategoryService {
   }
 
   private mapCategoryPages(queryResponse: QueryResponse): Page[] {
-    let query = queryResponse.query;
+    const query = queryResponse.query;
     let pages: Page[] = [];
 
     if (query) {
-      pages = query.pages.map((page: wikipedia.transport.Page):Page => {
+      pages = query.pages.map((page: wikipedia.transport.Page): Page => {
         return {
           title: page.title,
           thumbnail: safeThumbnailSource(page),
           extract: page.extract,
-        }
+        };
       });
     }
     return pages;
